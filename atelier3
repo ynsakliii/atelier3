@@ -1,0 +1,55 @@
+class Employer:
+    def __init__ (self, nom, prenom, numeropermis):
+        self.nom = nom
+        self.prenom = prenom
+        self.numeropermis = numeropermis
+        self.voitureservices = None
+    def afficherinfos(self):
+        print ("Informations de l'employé:")
+        print(f"Nom: {self.nom}")
+        print(f"Prénom: {self.prenom}")
+        print(f"Numéro de permis: {self.numeropermis}")
+
+        if self.voitureservices is not None:
+            print("Voiture de service attribuée:")
+            print("Matricule :", self.voitureservices.matricule)
+            print("Marque :", self.voitureservices.marque)
+            print("Annee :", self.voitureservices.annee)
+            print("Kilometrage :", self.voitureservices.kilometrage)
+        else:
+            print("Aucune voiture de service attribuée.")
+    def ajoutervoiture(self, voiture):
+        if self.voitureservices is not None:
+            print("Erreur: la voiture est déjà attribuée à un employé.")
+        else:
+            self.voitureservices = voiture
+class Voiture:
+    def __init__(self, matricule, marque, annee, kilometrage):
+        self.matricule = matricule
+        self.marque = marque
+        self.annee = annee
+        self.kilometrage = kilometrage
+        self.employe = None
+    def afficherinfos(self):
+        print("Informations de la voiture:")
+        print(f"Matricule: {self.matricule}")
+        print(f"Marque: {self.marque}")
+        print(f"Année: {self.annee}")
+        print(f"Kilométrage: {self.kilometrage}")
+        if self.employe is not None:
+            print("Attribuée à l'employé:")
+            print(f"Nom: {self.employe.nom}")
+            print(f"Prénom: {self.employe.prenom}")
+        else:
+            print("Aucun employé n'est actuellement attribué à cette voiture.")
+
+e1 = Employer("Doe", "John", "123456")
+e2 = Employer("Smith", "Jane", "654321")
+v1 = Voiture("ABC123", "Toyota", 2020, 15000)
+v2 = Voiture("XYZ789", "Honda", 2019, 30000)
+e1.ajoutervoiture(v1)
+e2.ajoutervoiture(v2)
+e1.afficherinfos()
+e2.afficherinfos()
+v1.afficherinfos()
+v2.afficherinfos()
