@@ -1,0 +1,1 @@
+Cet atelier consiste à modéliser en Python la gestion de voitures de service à l’aide de classes et d’objets. Il permet de manipuler les concepts de base de la POO comme les attributs, les méthodes, les associations entre classes et la gestion des relations entre objets.
