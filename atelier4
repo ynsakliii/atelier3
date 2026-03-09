@@ -1,0 +1,39 @@
+class Voiture:
+    def __init__(self, matricule, marque, couleur):
+        self.matricule = matricule
+        self.marque = marque
+        self.couleur = couleur
+    def afficherinfos(self):
+        print("Informations de la voiture:")
+        print(f"Matricule: {self.matricule}")
+        print(f"Marque: {self.marque}")
+        print(f"Couleur: {self.couleur}")
+class Parc:
+     def __init__(self, id, adresse, capacite):
+        self.id = id
+        self.adresse = adresse
+        self.capacite = capacite
+        self.voitures = []
+     def entrervoiture(self, voiture):
+        if len(self.voitures) < self.capacite:
+            self.voitures.append(voiture)
+            print(f"Voiture {voiture.matricule} est entrée dans le parc.")
+        else:
+            print("Le parc est plein. Impossible d'entrer la voiture.")
+     def sortirvoiture(self, voiture):
+        if voiture in self.voitures:
+            self.voitures.remove(voiture)
+            print(f"Voiture {voiture.matricule} est sortie du parc.")
+        else:
+            print("La voiture n'est pas dans le parc.")
+p1 = Parc("P1", "123 Rue Principale", 2)
+v1 = Voiture("ABC123", "Toyota", "Rouge")
+v2 = Voiture("DEF456", "Honda", "Bleu")
+v3 = Voiture("GHI789", "Ford", "Noir")
+p1.entrervoiture(v1)
+p1.entrervoiture(v2)
+p1.entrervoiture(v3)
+p1.sortirvoiture(v1)
+
+
+
